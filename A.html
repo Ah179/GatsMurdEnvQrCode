@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatsby Murder Mystery QR Codes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gatsby Murder Mystery Party</h1>
+        <p>Click on a character to view QR codes:</p>
+        
+        <div class="character-list" id="characterList">
+            <!-- Character links will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to generate character links dynamically
+        function generateCharacterLinks() {
+            // Replace with actual character names dynamically fetched
+            var characters = [
+                "Arnie", "Billie", "Boxer", "Brave", "Chappy", "Charlie", 
+                "Chief", "Cigarette", "Daisy", "Dazzling", "Dazzy", "Detective", 
+                "Eddie", "Flapper", "Freddie", "Gerry", "Gertie", "Gillie", 
+                "Greta", "Henchman", "High", "Honest", "Jay", "Jazzy", 
+                "Mayor", "Mobster", "Musician", "Nicky", "Police", "Sid", 
+                "Socialite", "Sports", "Tom"
+            ];
+
+            var characterList = document.getElementById('characterList');
+
+            // Generate links for each character
+            characters.forEach(function(character) {
+                var characterDiv = document.createElement('div');
+                characterDiv.classList.add('character');
+
+                var characterLinkA = document.createElement('a');
+                characterLinkA.href = `${character}/A`;
+                characterLinkA.textContent = `${character} - A`;
+                characterLinkA.target = "_blank";
+
+                var characterLinkB = document.createElement('a');
+                characterLinkB.href = `${character}/B`;
+                characterLinkB.textContent = `${character} - B`;
+                characterLinkB.target = "_blank";
+
+                characterDiv.appendChild(characterLinkA);
+                characterDiv.appendChild(document.createElement('br')); // Line break for separation
+                characterDiv.appendChild(characterLinkB);
+
+                characterList.appendChild(characterDiv);
+            });
+        }
+
+        // Call the function to generate character links when the page loads
+        window.onload = generateCharacterLinks;
+    </script>
+</body>
+</html>
